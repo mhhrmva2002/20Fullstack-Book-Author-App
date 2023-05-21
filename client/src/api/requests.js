@@ -30,10 +30,7 @@ export const deleteAuthorById = async (id) => {
         })
     return globalData;
 }
-//add author
-export const addAuthor = async (data) => {
-    await axios.post(`${BASE_URL}/authors`, data)
-}
+
 //update author
 export const updateAuthor = async (id, data) => {
     let globalData;

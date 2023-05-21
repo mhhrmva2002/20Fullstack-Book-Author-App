@@ -96,7 +96,29 @@ app.delete('/api/authors/:id', (req, res) => {
     })
   }
 })
-
+//put author
+app.put('/api/authors/:id', (req, res) => {
+  const id = req.params.id;
+  const author = Authors.find(author => author.id == id);
+  if (author) {
+    const {Name,Birthyear,Genre,isDead,isMale,ImageURL} = req.body;
+    author.Name = Name;
+    author.Birthyear = Birthyear;
+    author.Genre = Genre;
+    author.isDead = isDead;
+    author.isMale = isMale;
+    author.ImageURL = ImageURL;
+    res.status(200).send({
+      data: author,
+      message: 'data updated succes'
+      })
+      } else {
+        res.status(404).send({
+          message: 'data not found'
+          })
+          }
+          })
+          
 
 app.listen(PORT, () => {
   console.log(`Example app listening on PORT ${PORT}`)
