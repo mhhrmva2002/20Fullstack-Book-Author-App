@@ -23,12 +23,7 @@ export const getAuthorById = async (id) => {
 }
 //delete author by id
 export const deleteAuthorById = async (id) => {
-    let globalData;
     await axios.delete(`${BASE_URL}/authors/${id}`)
-        .then(res => {
-            globalData = res.data.data
-        })
-    return globalData;
 }
 
 //update author

@@ -31,7 +31,7 @@ const Authors = () => {
                 />
               }
             >
-              <Typography> <Link to={`/author/${author.id}`} style={author.isDead?{"color":"red"}:{}}>{author.Name}</Link></Typography>
+              <Typography> <Link to={`/author/${author._id}`} style={author.isDead?{"color":"red"}:{}}>{author.Name}</Link></Typography>
               <Typography>Age:{2023-author.Birthyear}</Typography>
               <Typography>Genre:{author.Genre}</Typography>
               <Typography>Gender:{author.isMale?"Male":"Female"}</Typography>
@@ -46,14 +46,14 @@ const Authors = () => {
                     confirmButtonText: 'Yes, delete it!'
                   }).then((result) => {
                     if (result.isConfirmed) {
-                      deleteAuthorById(author.id).then(res=>{
-                        Swal.fire(
-                          `${author.name}Deleted!`,
-                          'Your author has been deleted.',
-                          'success'
-                        )
-                      })
-                     setAuthors(authors.filter((x)=>x.id!==author.id))
+                      setAuthors(authors.filter((x)=>x._id!==author._id))
+                      Swal.fire(
+                        `${author.Name} Deleted!`,
+                        'Your author has been deleted.',
+                        'success'
+                      )
+                      deleteAuthorById(author._id)
+                     
                     }
                   })
                 }

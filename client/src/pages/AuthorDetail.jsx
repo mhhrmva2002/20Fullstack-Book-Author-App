@@ -16,7 +16,7 @@ const AuthorDetail = () => {
     <>
  <Box sx={{ flexGrow: 1, width: "90%", margin: "25px auto" }}>
         <Grid container spacing={2}>
-           <Grid key={author.id} item lg={3} md={6} sm={12}>
+           <Grid key={author._id} item lg={3} md={6} sm={12}>
             <Card
               hoverable
               cover={
@@ -31,7 +31,7 @@ const AuthorDetail = () => {
                 />
               }
             >
-              <Typography><Link to={`/author/${author.id}`} style={author.isDead?{"color":"red"}:{}}>{author.Name}</Link></Typography>
+              <Typography style={author.isDead?{"color":"red"}:{}}>{author.Name}</Typography>
               <Typography>Birthyear:{author.Birthyear}</Typography>
               <Typography>Genre:{author.Genre}</Typography>
               <Typography>Gender:{author.isMale?"Male":"Female"}</Typography>
